@@ -1,0 +1,47 @@
+﻿@model Tedi_QA.Data.Entities.Answer
+
+@{
+    ViewData["Title"] = "EditAnswer";
+}
+
+<h1>EditAnswer</h1>
+
+<h4>Answer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditAnswer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input style="display:none" asp-for="Qid" value="@ViewBag.qid" />
+            <div class="form-group">
+                <label class="control-label">Name/Initials</label>
+                <input asp-for="lecturerName" class="form-control" />
+                <span asp-validation-for="lecturerName" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="isPublished" />Tick for publish, Un-tick for unpublish
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="answer" class="control-label"></label>
+                <textarea asp-for="answer" class="form-control" cols="50"></textarea>
+                <span asp-validation-for="answer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Answered on:</label>
+                <input disabled asp-for="answerDate" class="form-control" />
+                <span asp-validation-for="answerDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Answers">Back to List</a>
+</div>
+

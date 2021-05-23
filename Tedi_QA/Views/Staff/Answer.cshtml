@@ -1,0 +1,47 @@
+﻿@model Tedi_QA.Data.Entities.Answer
+
+@{
+    ViewData["Title"] = "Answer";
+}
+
+
+<h4>Answer a question</h4>
+<hr />
+<p>You are answering 
+    @ViewBag.id
+</p>
+<p>@ViewBag.msg</p>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Answer">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input style="display:none" asp-for="Qid" value="@ViewBag.qid" />
+            <div class="form-group">
+                <label class="control-label">Name / Initials:</label>
+                <input asp-for="lecturerName" class="form-control" />
+                <span asp-validation-for="lecturerName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="answer" class="control-label"></label>
+                <textarea asp-for="answer" class="form-control" cols="20" ></textarea>
+                <span asp-validation-for="answer" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="isPublished" /> Publish Now
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Post Answer" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Answers">Back to List</a>
+</div>
+

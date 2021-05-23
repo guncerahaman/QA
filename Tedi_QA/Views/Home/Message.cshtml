@@ -1,0 +1,33 @@
+﻿@model MessageViewModel
+@{
+    ViewData["Title"] = "Send us a question";
+}
+
+<h1>Ask us!</h1>
+
+<div id="qForm">
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+        <label class="form-label"  asp-for="name" >Name:</label>
+        <input class="form-control" type="text" asp-for="name" size="30">
+        <label class="form-label" asp-for="email">
+            E-mail (required):
+        </label>
+        <input class="form-control" type="email" asp-for="email" size="30">
+        <label class="form-label" asp-for="phone" >
+            Phone (optional):
+        </label>
+        <input class="form-control" type="tel" asp-for="phone" size="30">
+        <label class="form-label" asp-for="message">
+            Message:
+        </label>
+
+        <br />
+        <textarea class="form-control" rows="9" asp-for="message">
+                     </textarea>
+
+        <input class="btn btn-light mt-2" type="submit" value="Send" name="submit">
+
+
+    </form>
+    </div>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Tedi_QA.Data.Entities.Answer>
+
+@{
+    ViewData["Title"] = "Answers";
+}
+
+
+
+<table class="table table-bordered" id="dataTable" cellspacing="0">
+    <thead>
+        <tr>
+
+            <th>
+                Staff
+            </th>
+            <th>
+                Published
+            </th>
+
+            <th>
+                Date Answered
+            </th>
+            <th>
+                Question by
+            </th>
+            <th>
+                Answer
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.lecturerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.isPublished)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.answerDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.question.email)
+                </td>
+                <td>
+                    @item.answer.Substring(0, 15) ...
+                </td>
+                <td>
+                    <a asp-action="EditAnswer" asp-route-id="@item.id">Edit Answer</a> |
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

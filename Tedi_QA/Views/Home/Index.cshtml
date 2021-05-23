@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Tedi_QA.Data.Entities.Answer>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<h1 class="display-4 text-center">Questions & Answers</h1>
+
+    <form asp-action="Index">
+        <div class="text-center">
+            <input name="searchString" class="form-control " />
+
+            <input class="btn btn-light" type="submit" value="Search" />
+        </div>
+    </form>
+
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-12 col-sm-12 col-lg-12">
+                <details style="marker-start:none">
+                    <summary>
+                        <div class=" bg-light p-2 border-secondary">
+                            <span class="font-weight-bold">@item.question.name asked on @item.question.questionDate</span><br />
+                            <p>@item.question.message</p>
+
+                        </div>
+                    </summary>
+                    <div class="bg-light p-2">
+                        <span class="font-weight-bold">@item.lecturerName replied on @item.answerDate</span><br />
+                        <p>@item.answer</p>
+                    </div>
+                </details>
+            </div>
+            <hr />
+
+
+
+        }
+    </div>
+
